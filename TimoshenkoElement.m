@@ -36,8 +36,8 @@ if 1==1
     for p=1:Q %Quadrature loop
        n1 = 0.5*(1-xi(p,1));
        n2 = 0.5*(1+xi(p,1));
-       dn1dx = 1/(L);
-       dn2dx = -1/(L);
+       dn1dx = -1/(L);
+       dn2dx = 1/(L);
 
        upr = d(1)*dn1dx + d(4)*dn2dx;
        vpr = d(2)*dn1dx + d(5)*dn2dx;
