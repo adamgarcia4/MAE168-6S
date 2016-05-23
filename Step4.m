@@ -56,7 +56,7 @@ X = [x; z];
 D1 = zeros(size(EQN));
 
 % Call assembly function to compute W, R, K
-[W, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse);
+[W, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse,1);
 
 Q = zeros(nActiveDoF,1);
 Q(end-1) = P;
@@ -127,7 +127,7 @@ for i = NELSpace
     
     D1 = zeros(size(EQN));
     
-    [~, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse);
+    [~, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse,1);
     
     % Solve for unknown displacements
     Q = zeros(nActiveDoF,1);

@@ -1,4 +1,4 @@
-function [W, R, K] = TimoshenkoAssembly(EA, EI, kGA, CNX, EQN, X, D, qu, qw)
+function [W, R, K] = TimoshenkoAssembly(EA, EI, kGA, CNX, EQN, X, D, qu, qw,Q)
 % Function to compute and assemble the energy, nodal residual force vector,
 % and stiffness matrix of an assembly of Timoshenko frame elements.
 %
@@ -54,7 +54,7 @@ for e=1:E
         elementNodes(2)*NPE-1,elementNodes(2)*NPE]));
     
     % Call TimoshenkoElement to compute element quantities
-    [w,r,k] = TimoshenkoElement(EA(e),EI(e),kGA(e),x,d,qu(e),qw(e));
+    [w,r,k] = TimoshenkoElement(EA(e),EI(e),kGA(e),x,d,qu(e),qw(e),Q);
 
     % Assemble element contributions to global energy, residual, stiffness
     W = W+w;

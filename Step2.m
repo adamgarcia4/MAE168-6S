@@ -49,7 +49,7 @@ X = [linspace(0,L,NNodes); zeros(1,NNodes)];
 D1 = zeros(size(EQN));
 
 % Call assembly function to compute W, R, K
-[W, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse);
+[W, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse,1);
 
 % Generate concentrated force vector Q
 Q = zeros(nActiveDoF,1);
@@ -84,7 +84,7 @@ for i = LengthArray
     X = [linspace(0,L,NNodes); zeros(1,NNodes)];
     D1 = zeros(size(EQN));
     
-    [~, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse);
+    [~, R, K] = TimoshenkoAssembly(EA,EI,kGA,CNX,EQN,X,D1,qAxial,qTransverse,Q);
     
     D = K\(Q-R);
     wTimo(count) = D(end-1);
